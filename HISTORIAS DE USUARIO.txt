@@ -1,0 +1,133 @@
+HISTORIAS DE USUARIO
+
+REPORTERIA:
+1.Como administrador quiero gestionar  información de los estudiantes.
+2.Como administrador quiero gestionar la información de los profesores.
+3.Como administrador quiero gestionar los informer de los proveedores.
+4.Como administrador quiero gestionar los informer de los empleados.
+5.Como administrador quiero montos por hora que tiene cada departamento.
+
+
+BITACORA:
+
+1.Como administrador quiero crear una clase para poder agregar las clases que se formaran para cada curso
+2.Como administrador quiero editar las clases para poder modificar las clase en caso de ser necesario aplicar modificasiones de alumnos o profesores
+3.Como administrador quiero  visualisar los detalles de las clases ya creadas para poder ver el estado actual de las mismas.
+4.Como administrador quiero deshabilitar las clases para poder eliminar la clase sin borrar el registro de su existencia o evitar que se agregue algun alumno o profesor a ellas 
+5.Como profesor quiero asignar, visualizar, editar y colocar valores correctosde las notas a una clase
+6.Como profesor, quiero poder llevar un registro de asistencia de los alumnos en cada clase, para monitorear su participación y cumplimiento.
+
+
+PROFESORES:
+1.Como administrador quiero gestionar los profesores que laboran para el instituto.
+2.Como administrador quiero saber cuantos horarios tiene cada profesor.
+3.Como administrador quiero saber cuantas horas laboradas tiene cada profesor.
+
+CURSOS:
+1.Como administrador quiero poder agregar nuevos cursos.
+2.Como administrador quiero poder ver los cursos existentes
+3.Como administrador quiero poder editar los cursos existentes
+4.Como administrador quiero poder eliminar los cursos existentes
+5.Como administrador quiero poder asignar profesores a los cursos
+
+OFICINA:
+1.Como administrador quiero poder realizar, consultar y modificar matriculas
+2.Como administrador requeriero tener reportes del negocio
+3.Como administrador, requiero tener control del dinero en la oficina
+
+
+CLASE:
+
+1.Como administrador quiero crear una clase para poder agregar las clases que se formaran para cada curso
+2.Como administrador quiero editar las clases para poder modificar las clase en caso de ser necesario aplicar modificasiones de alumnos o profesores
+3.Como administrador quiero  visualisar los detalles de las clases ya creadas para poder ver el estado actual de las mismas.
+4.Como administrador quiero deshabilitar las clases para poder eliminar la clase sin borrar el registro de su existencia o evitar que se agregue algun alumno o profesor a ellas 
+5.Como profesor quiero asignar, visualizar, editar y colocar valores correctosde las notas a una clase
+6.Como profesor, quiero poder llevar un registro de asistencia de los alumnos en cada clase, para monitorear su participación y cumplimiento.
+
+
+ESTUDIANTE:
+1.Como administrador quiero gestionar el rendimiento académido de los estudiantes.
+2.Como administrador quiero hacer comentarios  sobre un estudiante.
+3.Como administrador quiero ver la informacion completa de cada estudiante.
+4.Como administrador quiero tener una cuenta en donde pueda acceder solo con un usuario, contraseña y opcion de recuperación.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
