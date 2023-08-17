@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CCIH_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Asignaciones">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaHora" Type="datetime" />
+          <Property Name="Mensaje" Type="varchar" MaxLength="5000" />
+          <Property Name="Origen" Type="varchar" MaxLength="5000" />
+          <Property Name="IdUsuario" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="20" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="15" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="IdEstatus" Type="bigint" />
+          <Property Name="IdRol" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Estatus">
+          <Key>
+            <PropertyRef Name="IdEstatus" />
+          </Key>
+          <Property Name="IdEstatus" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstatus" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="IdHorario" />
+          </Key>
+          <Property Name="IdHorario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dia" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Matricula">
+          <Key>
+            <PropertyRef Name="IdMatricula" />
+          </Key>
+          <Property Name="IdMatricula" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="20" />
+          <Property Name="IdCurso" Type="bigint" />
+          <Property Name="IdModalidad" Type="bigint" />
+          <Property Name="IdNivel" Type="bigint" />
+          <Property Name="IdHorario" Type="bigint" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaMatricula" Type="datetime" />
+          <Property Name="DiaPago" Type="int" />
+          <Property Name="Comentario" Type="varchar" MaxLength="500" />
+          <Property Name="IdEstatus" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Modalidad">
+          <Key>
+            <PropertyRef Name="IdModalidad" />
+          </Key>
+          <Property Name="IdModalidad" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NivelCurso">
+          <Key>
+            <PropertyRef Name="IdNivelCurso" />
+          </Key>
+          <Property Name="IdNivelCurso" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Nota">
+          <Key>
+            <PropertyRef Name="IdNota" />
+          </Key>
+          <Property Name="IdNota" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGrupo" Type="bigint" />
+          <Property Name="IdUsuario" Type="bigint" />
+          <Property Name="IdOficinas" Type="bigint" />
+          <Property Name="Nota" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="IdAgisnacion" Type="bigint" />
+          <Property Name="IdCurso" Type="bigint" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Oficina">
+          <Key>
+            <PropertyRef Name="IdOficina" />
+          </Key>
+          <Property Name="IdOficina" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="15" />
+          <Property Name="IdUsuario" Type="bigint" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+          <Property Name="IdEstatus" Type="bigint" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="IdRol" Type="bigint" />
+        </EntityType>
+        <EntityType Name="PagoClientes">
+          <Key>
+            <PropertyRef Name="IdPagoCliente" />
+          </Key>
+          <Property Name="IdPagoCliente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Motivo" Type="varchar" MaxLength="500" />
+          <Property Name="IdCliente" Type="varchar" MaxLength="20" />
+          <Property Name="IdCurso" Type="bigint" />
+          <Property Name="FechaPago" Type="datetime" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PagoProveedor">
+          <Key>
+            <PropertyRef Name="IdPagoProveedor" />
+          </Key>
+          <Property Name="IdPagoProveedor" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Motivo" Type="varchar" MaxLength="500" />
+          <Property Name="IdProveedor" Type="bigint" />
+          <Property Name="FechaPago" Type="datetime" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'CCIH_DB.dbo.PreMatricula' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PreMatricula">
+          <Key>
+            <PropertyRef Name="IdPrematricula" />
+          </Key>
+          <Property Name="IdPrematricula" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+          <Property Name="Nombre" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="15" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="15" />
+          <Property Name="IdCurso" Type="bigint" />
+          <Property Name="IdModalidad" Type="bigint" />
+          <Property Name="IdNivel" Type="bigint" />
+          <Property Name="IdEstatus" Type="bigint" />
+          <Property Name="FechaPrematricula" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="15" />
+          <Property Name="PwUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="IdOficina" Type="bigint" />
+          <Property Name="IdCliente" Type="varchar" MaxLength="20" />
+          <Property Name="IdRol" Type="bigint" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaUltimaActividad" Type="datetime" />
+          <Property Name="IdUsuarioModificacion" Type="bigint" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="IdEstatus" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_Nota_Asignaciones">
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaciones">
+              <PropertyRef Name="IdAsignacion" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdAgisnacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nota_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nota_Oficina">
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficina">
+              <PropertyRef Name="IdOficina" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdOficinas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Estatus">
+          <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estatus">
+              <PropertyRef Name="IdEstatus" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="IdEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PagoProveedor_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="PagoProveedor" Type="Self.PagoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="PagoProveedor">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ConsultarCursos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarEstatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarGrupos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarHorarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarModalidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarPreMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CREAR_ROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="EDITAR_ROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRol" Type="bigint" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="ELIMINAR_ROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRol" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="InicioSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombreUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="contrasenna" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="INSERTAR_ROL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreRol" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cedula" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="bigint" Mode="In" />
+          <Parameter Name="IdRol" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="InsertarPrematricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CorreoElectronico" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido1" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido2" Type="varchar" Mode="In" />
+          <Parameter Name="IdCurso" Type="bigint" Mode="In" />
+          <Parameter Name="IdModalidad" Type="bigint" Mode="In" />
+          <Parameter Name="IdNivel" Type="bigint" Mode="In" />
+          <Parameter Name="IdEstatus" Type="bigint" Mode="In" />
+          <Parameter Name="FechaPrematricula" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="LISTAR_ROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="RegistarMatricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cedula" Type="varchar" Mode="In" />
+          <Parameter Name="IdCurso" Type="bigint" Mode="In" />
+          <Parameter Name="IdModalidad" Type="bigint" Mode="In" />
+          <Parameter Name="IdNivel" Type="bigint" Mode="In" />
+          <Parameter Name="IdHorario" Type="bigint" Mode="In" />
+          <Parameter Name="Monto" Type="decimal" Mode="In" />
+          <Parameter Name="FechaMatricula" Type="datetime" Mode="In" />
+          <Parameter Name="DiaPago" Type="int" Mode="In" />
+          <Parameter Name="Comentario" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstatus" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="CCIH_DBModelStoreContainer">
+          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estatus" EntityType="Self.Estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modalidad" EntityType="Self.Modalidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NivelCurso" EntityType="Self.NivelCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nota" EntityType="Self.Nota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PagoClientes" EntityType="Self.PagoClientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PagoProveedor" EntityType="Self.PagoProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreMatricula" EntityType="Self.PreMatricula" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PreMatricula].[IdPrematricula] AS [IdPrematricula], 
+    [PreMatricula].[CorreoElectronico] AS [CorreoElectronico], 
+    [PreMatricula].[Telefono] AS [Telefono], 
+    [PreMatricula].[Nombre] AS [Nombre], 
+    [PreMatricula].[Apellido1] AS [Apellido1], 
+    [PreMatricula].[Apellido2] AS [Apellido2], 
+    [PreMatricula].[IdCurso] AS [IdCurso], 
+    [PreMatricula].[IdModalidad] AS [IdModalidad], 
+    [PreMatricula].[IdNivel] AS [IdNivel], 
+    [PreMatricula].[IdEstatus] AS [IdEstatus], 
+    [PreMatricula].[FechaPrematricula] AS [FechaPrematricula]
+    FROM [dbo].[PreMatricula] AS [PreMatricula]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Nota_Asignaciones" Association="Self.FK_Nota_Asignaciones">
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nota_Curso" Association="Self.FK_Nota_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nota_Oficina" Association="Self.FK_Nota_Oficina">
+            <End Role="Oficina" EntitySet="Oficina" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Estatus" Association="Self.FK_Oficina_Estatus">
+            <End Role="Estatus" EntitySet="Estatus" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Rol" Association="Self.FK_Oficina_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PagoProveedor_Proveedor" Association="Self.FK_PagoProveedor_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="PagoProveedor" EntitySet="PagoProveedor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CCIH_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asignaciones">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Asignaciones" FromRole="Asignaciones" ToRole="Nota" />
+        </EntityType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHora" Type="DateTime" Precision="3" />
+          <Property Name="Mensaje" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Origen" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuario" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int64" />
+          <Property Name="IdRol" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="IdCurso" />
+          </Key>
+          <Property Name="IdCurso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Curso" FromRole="Curso" ToRole="Nota" />
+        </EntityType>
+        <EntityType Name="Estatus">
+          <Key>
+            <PropertyRef Name="IdEstatus" />
+          </Key>
+          <Property Name="IdEstatus" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Estatus" FromRole="Estatus" ToRole="Oficina" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstatus" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="IdHorario" />
+          </Key>
+          <Property Name="IdHorario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Matricula">
+          <Key>
+            <PropertyRef Name="IdMatricula" />
+          </Key>
+          <Property Name="IdMatricula" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCurso" Type="Int64" />
+          <Property Name="IdModalidad" Type="Int64" />
+          <Property Name="IdNivel" Type="Int64" />
+          <Property Name="IdHorario" Type="Int64" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaMatricula" Type="DateTime" Precision="3" />
+          <Property Name="DiaPago" Type="Int32" />
+          <Property Name="Comentario" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Modalidad">
+          <Key>
+            <PropertyRef Name="IdModalidad" />
+          </Key>
+          <Property Name="IdModalidad" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NivelCurso">
+          <Key>
+            <PropertyRef Name="IdNivelCurso" />
+          </Key>
+          <Property Name="IdNivelCurso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Nota">
+          <Key>
+            <PropertyRef Name="IdNota" />
+          </Key>
+          <Property Name="IdNota" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGrupo" Type="Int64" />
+          <Property Name="IdUsuario" Type="Int64" />
+          <Property Name="IdOficinas" Type="Int64" />
+          <Property Name="Nota1" Type="Decimal" Precision="4" Scale="1" />
+          <Property Name="IdAgisnacion" Type="Int64" />
+          <Property Name="IdCurso" Type="Int64" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Nota_Asignaciones" FromRole="Nota" ToRole="Asignaciones" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK_Nota_Curso" FromRole="Nota" ToRole="Curso" />
+          <NavigationProperty Name="Oficina" Relationship="Self.FK_Nota_Oficina" FromRole="Nota" ToRole="Oficina" />
+        </EntityType>
+        <EntityType Name="Oficina">
+          <Key>
+            <PropertyRef Name="IdOficina" />
+          </Key>
+          <Property Name="IdOficina" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuario" Type="Int64" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstatus" Type="Int64" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="IdRol" Type="Int64" />
+          <NavigationProperty Name="Estatus" Relationship="Self.FK_Oficina_Estatus" FromRole="Oficina" ToRole="Estatus" />
+          <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Oficina" FromRole="Oficina" ToRole="Nota" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Oficina_Rol" FromRole="Oficina" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="PagoClientes">
+          <Key>
+            <PropertyRef Name="IdPagoCliente" />
+          </Key>
+          <Property Name="IdPagoCliente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCurso" Type="Int64" />
+          <Property Name="FechaPago" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PagoProveedor">
+          <Key>
+            <PropertyRef Name="IdPagoProveedor" />
+          </Key>
+          <Property Name="IdPagoProveedor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdProveedor" Type="Int64" />
+          <Property Name="FechaPago" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.FK_PagoProveedor_Proveedor" FromRole="PagoProveedor" ToRole="Proveedor" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <NavigationProperty Name="PagoProveedor" Relationship="Self.FK_PagoProveedor_Proveedor" FromRole="Proveedor" ToRole="PagoProveedor" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Rol" FromRole="Rol" ToRole="Oficina" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PwUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdOficina" Type="Int64" />
+          <Property Name="IdCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdRol" Type="Int64" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaUltimaActividad" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int64" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="IdEstatus" Type="Int64" />
+        </EntityType>
+        <EntityType Name="PreMatricula">
+          <Key>
+            <PropertyRef Name="IdPrematricula" />
+          </Key>
+          <Property Name="IdPrematricula" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IdCurso" Type="Int64" />
+          <Property Name="IdModalidad" Type="Int64" />
+          <Property Name="IdNivel" Type="Int64" />
+          <Property Name="IdEstatus" Type="Int64" />
+          <Property Name="FechaPrematricula" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Nota_Asignaciones">
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignaciones">
+              <PropertyRef Name="IdAsignacion" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdAgisnacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nota_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Estatus">
+          <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estatus">
+              <PropertyRef Name="IdEstatus" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="IdEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nota_Oficina">
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="0..1" />
+          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oficina">
+              <PropertyRef Name="IdOficina" />
+            </Principal>
+            <Dependent Role="Nota">
+              <PropertyRef Name="IdOficinas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oficina_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="Oficina">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PagoProveedor_Proveedor">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="PagoProveedor" Type="Self.PagoProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="PagoProveedor">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CCIH_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" />
+          <EntitySet Name="Estatus" EntityType="Self.Estatus" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" />
+          <EntitySet Name="Matricula" EntityType="Self.Matricula" />
+          <EntitySet Name="Modalidad" EntityType="Self.Modalidad" />
+          <EntitySet Name="NivelCurso" EntityType="Self.NivelCurso" />
+          <EntitySet Name="Nota" EntityType="Self.Nota" />
+          <EntitySet Name="Oficina" EntityType="Self.Oficina" />
+          <EntitySet Name="PagoClientes" EntityType="Self.PagoClientes" />
+          <EntitySet Name="PagoProveedor" EntityType="Self.PagoProveedor" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="PreMatricula" EntityType="Self.PreMatricula" />
+          <AssociationSet Name="FK_Nota_Asignaciones" Association="Self.FK_Nota_Asignaciones">
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nota_Curso" Association="Self.FK_Nota_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Estatus" Association="Self.FK_Oficina_Estatus">
+            <End Role="Estatus" EntitySet="Estatus" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nota_Oficina" Association="Self.FK_Nota_Oficina">
+            <End Role="Oficina" EntitySet="Oficina" />
+            <End Role="Nota" EntitySet="Nota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oficina_Rol" Association="Self.FK_Oficina_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Oficina" EntitySet="Oficina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PagoProveedor_Proveedor" Association="Self.FK_PagoProveedor_Proveedor">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="PagoProveedor" EntitySet="PagoProveedor" />
+          </AssociationSet>
+          <FunctionImport Name="ConsultarCursos" ReturnType="Collection(CCIH_DBModel.ConsultarCursos_Result)" />
+          <FunctionImport Name="ConsultarEstatus" ReturnType="Collection(CCIH_DBModel.ConsultarEstatus_Result)" />
+          <FunctionImport Name="ConsultarGrupos" ReturnType="Collection(CCIH_DBModel.ConsultarGrupos_Result)" />
+          <FunctionImport Name="ConsultarHorarios" ReturnType="Collection(CCIH_DBModel.ConsultarHorarios_Result)" />
+          <FunctionImport Name="ConsultarModalidad" ReturnType="Collection(CCIH_DBModel.ConsultarModalidad_Result)" />
+          <FunctionImport Name="ConsultarNivel" ReturnType="Collection(CCIH_DBModel.ConsultarNivel_Result)" />
+          <FunctionImport Name="ConsultarPreMatricula" ReturnType="Collection(CCIH_DBModel.ConsultarPreMatricula_Result)" />
+          <FunctionImport Name="CREAR_ROL">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="EDITAR_ROL">
+            <Parameter Name="IdRol" Mode="In" Type="Int64" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="ELIMINAR_ROL">
+            <Parameter Name="IdRol" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="InicioSesion" ReturnType="Collection(CCIH_DBModel.InicioSesion_Result)">
+            <Parameter Name="nombreUsuario" Mode="In" Type="String" />
+            <Parameter Name="contrasenna" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTAR_ROL">
+            <Parameter Name="NombreRol" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarCliente">
+            <Parameter Name="Cedula" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido1" Mode="In" Type="String" />
+            <Parameter Name="Apellido2" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+            <Parameter Name="IdRol" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarPrematricula">
+            <Parameter Name="CorreoElectronico" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido1" Mode="In" Type="String" />
+            <Parameter Name="Apellido2" Mode="In" Type="String" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int64" />
+            <Parameter Name="IdModalidad" Mode="In" Type="Int64" />
+            <Parameter Name="IdNivel" Mode="In" Type="Int64" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+            <Parameter Name="FechaPrematricula" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="LISTAR_ROLES" ReturnType="Collection(CCIH_DBModel.LISTAR_ROLES_Result)" />
+          <FunctionImport Name="RegistarMatricula">
+            <Parameter Name="Cedula" Mode="In" Type="String" />
+            <Parameter Name="IdCurso" Mode="In" Type="Int64" />
+            <Parameter Name="IdModalidad" Mode="In" Type="Int64" />
+            <Parameter Name="IdNivel" Mode="In" Type="Int64" />
+            <Parameter Name="IdHorario" Mode="In" Type="Int64" />
+            <Parameter Name="Monto" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaMatricula" Mode="In" Type="DateTime" />
+            <Parameter Name="DiaPago" Mode="In" Type="Int32" />
+            <Parameter Name="Comentario" Mode="In" Type="String" />
+            <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ConsultarCursos_Result">
+          <Property Type="Int64" Name="IdCurso" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ConsultarEstatus_Result">
+          <Property Type="Int64" Name="IdEstatus" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="ConsultarGrupos_Result">
+          <Property Type="Int64" Name="IdGrupo" Nullable="false" />
+          <Property Type="Int64" Name="IdEstatus" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ConsultarHorarios_Result">
+          <Property Type="Int64" Name="IdHorario" Nullable="false" />
+          <Property Type="String" Name="Dia" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ConsultarModalidad_Result">
+          <Property Type="Int64" Name="IdModalidad" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ConsultarNivel_Result">
+          <Property Type="Int64" Name="IdNivelCurso" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ConsultarPreMatricula_Result">
+          <Property Type="Int64" Name="IdPrematricula" Nullable="false" />
+          <Property Type="String" Name="CorreoElectronico" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Apellido1" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Apellido2" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Curso" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Modalidad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nivel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estatus" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="InicioSesion_Result">
+          <Property Type="Int64" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="PwUsuario" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="IdOficina" Nullable="true" />
+          <Property Type="String" Name="IdCliente" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="IdRol" Nullable="true" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaUltimaActividad" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="IdUsuarioModificacion" Nullable="true" />
+          <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="IdEstatus" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="LISTAR_ROLES_Result">
+          <Property Type="Int64" Name="IdRol" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="IdUsuarioModificacion" Nullable="true" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CCIH_DBModelStoreContainer" CdmEntityContainer="CCIH_DBEntities">
+          <EntitySetMapping Name="Asignaciones">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Asignaciones">
+              <MappingFragment StoreEntitySet="Asignaciones">
+                <ScalarProperty Name="IdAsignacion" ColumnName="IdAsignacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estatus">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Estatus">
+              <MappingFragment StoreEntitySet="Estatus">
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horario">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Horario">
+              <MappingFragment StoreEntitySet="Horario">
+                <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matricula">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Matricula">
+              <MappingFragment StoreEntitySet="Matricula">
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+                <ScalarProperty Name="DiaPago" ColumnName="DiaPago" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modalidad">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Modalidad">
+              <MappingFragment StoreEntitySet="Modalidad">
+                <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NivelCurso">
+            <EntityTypeMapping TypeName="CCIH_DBModel.NivelCurso">
+              <MappingFragment StoreEntitySet="NivelCurso">
+                <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nota">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Nota">
+              <MappingFragment StoreEntitySet="Nota">
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdOficinas" ColumnName="IdOficinas" />
+                <ScalarProperty Name="Nota1" ColumnName="Nota" />
+                <ScalarProperty Name="IdAgisnacion" ColumnName="IdAgisnacion" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oficina">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Oficina">
+              <MappingFragment StoreEntitySet="Oficina">
+                <ScalarProperty Name="IdOficina" ColumnName="IdOficina" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagoClientes">
+            <EntityTypeMapping TypeName="CCIH_DBModel.PagoClientes">
+              <MappingFragment StoreEntitySet="PagoClientes">
+                <ScalarProperty Name="IdPagoCliente" ColumnName="IdPagoCliente" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagoProveedor">
+            <EntityTypeMapping TypeName="CCIH_DBModel.PagoProveedor">
+              <MappingFragment StoreEntitySet="PagoProveedor">
+                <ScalarProperty Name="IdPagoProveedor" ColumnName="IdPagoProveedor" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="CCIH_DBModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="PwUsuario" ColumnName="PwUsuario" />
+                <ScalarProperty Name="IdOficina" ColumnName="IdOficina" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaUltimaActividad" ColumnName="FechaUltimaActividad" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreMatricula">
+            <EntityTypeMapping TypeName="CCIH_DBModel.PreMatricula">
+              <MappingFragment StoreEntitySet="PreMatricula">
+                <ScalarProperty Name="IdPrematricula" ColumnName="IdPrematricula" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="FechaPrematricula" ColumnName="FechaPrematricula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarCursos" FunctionName="CCIH_DBModel.Store.ConsultarCursos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarCursos_Result">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarEstatus" FunctionName="CCIH_DBModel.Store.ConsultarEstatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarEstatus_Result">
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarGrupos" FunctionName="CCIH_DBModel.Store.ConsultarGrupos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarGrupos_Result">
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarHorarios" FunctionName="CCIH_DBModel.Store.ConsultarHorarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarHorarios_Result">
+                <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarModalidad" FunctionName="CCIH_DBModel.Store.ConsultarModalidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarModalidad_Result">
+                <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarNivel" FunctionName="CCIH_DBModel.Store.ConsultarNivel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarNivel_Result">
+                <ScalarProperty Name="IdNivelCurso" ColumnName="IdNivelCurso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarPreMatricula" FunctionName="CCIH_DBModel.Store.ConsultarPreMatricula">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.ConsultarPreMatricula_Result">
+                <ScalarProperty Name="IdPrematricula" ColumnName="IdPrematricula" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Modalidad" ColumnName="Modalidad" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CREAR_ROL" FunctionName="CCIH_DBModel.Store.CREAR_ROL" />
+          <FunctionImportMapping FunctionImportName="EDITAR_ROL" FunctionName="CCIH_DBModel.Store.EDITAR_ROL" />
+          <FunctionImportMapping FunctionImportName="ELIMINAR_ROL" FunctionName="CCIH_DBModel.Store.ELIMINAR_ROL" />
+          <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="CCIH_DBModel.Store.InicioSesion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.InicioSesion_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="PwUsuario" ColumnName="PwUsuario" />
+                <ScalarProperty Name="IdOficina" ColumnName="IdOficina" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaUltimaActividad" ColumnName="FechaUltimaActividad" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="INSERTAR_ROL" FunctionName="CCIH_DBModel.Store.INSERTAR_ROL" />
+          <FunctionImportMapping FunctionImportName="InsertarCliente" FunctionName="CCIH_DBModel.Store.InsertarCliente" />
+          <FunctionImportMapping FunctionImportName="InsertarPrematricula" FunctionName="CCIH_DBModel.Store.InsertarPrematricula" />
+          <FunctionImportMapping FunctionImportName="LISTAR_ROLES" FunctionName="CCIH_DBModel.Store.LISTAR_ROLES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CCIH_DBModel.LISTAR_ROLES_Result">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RegistarMatricula" FunctionName="CCIH_DBModel.Store.RegistarMatricula" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

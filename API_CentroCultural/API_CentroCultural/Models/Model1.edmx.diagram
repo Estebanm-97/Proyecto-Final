@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ba2f3ee71b0a4d1fbc2b4891cb1d250b" Name="Diagram1">
+        <EntityTypeShape EntityType="CCIH_DBModel.Asignaciones" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Bitacora" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Cliente" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Curso" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Estatus" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Grupo" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Horario" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Matricula" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Modalidad" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.NivelCurso" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Nota" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Oficina" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.PagoClientes" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.PagoProveedor" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Proveedor" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Rol" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.Usuario" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCIH_DBModel.PreMatricula" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="CCIH_DBModel.FK_Nota_Asignaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="CCIH_DBModel.FK_Nota_Curso" ManuallyRouted="false" />
+        <AssociationConnector Association="CCIH_DBModel.FK_Oficina_Estatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CCIH_DBModel.FK_Nota_Oficina" ManuallyRouted="false" />
+        <AssociationConnector Association="CCIH_DBModel.FK_Oficina_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="CCIH_DBModel.FK_PagoProveedor_Proveedor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

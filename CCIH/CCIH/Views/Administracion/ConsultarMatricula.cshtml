@@ -1,0 +1,133 @@
+
+@{
+    ViewBag.Title = "Matricula";
+    Layout = "~/Views/Shared/_Layout_Administracion.cshtml";
+}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Consultar Matricula</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Administracion/index">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="#">Consultar Matricula</a></li>
+            </ol>
+        </nav>
+
+        <form>
+                <div class="col-sm-4">
+                    <input type="email" style="
+                                                padding: .375rem .75rem;
+                                                font-size: 1rem;
+                                                font-weight: 400;
+                                                line-height: 1.5;
+                                                color: #212529;
+                                                background-color:#fff;
+                                                background-clip: padding-box;
+                                                border: 1px solid #ced4da;
+                                                -webkit-appearance: none;
+                                                -moz-appearance: none;
+                                                appearance: none;
+                                                border-radius: .375rem;
+                                                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; "
+                                     placeholder="Buscar Cedula">
+                    <button type="submit" class="btn btn-outline-warning"><i class="bi bi-search"></i></button>
+                </div>
+        </form>
+
+    </div><!-- End Page Title -->
+
+
+    <section class="section">
+        <div class="row">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Matricula</h5>
+
+                    <!-- General Form Elements -->
+
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Cedula</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" value="" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Curso</label>
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Modalidad</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Horario</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Monto Mensual</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="inputDate" class="col-sm-2 col-form-label">Fecha de Matricula</label>
+                            <div class="col-sm-3">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Dia de Pago</label>
+                            <div class="col-sm-1">
+                                <input type="Number" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Notas</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" style="height: 50px"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Estatus</label>
+                            <div class="col-sm-3">
+                                <select class="form-select">
+                                    <option selected>Opcion Original</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2">Deshabilitado</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row mb-5">
+                            <div class="col-10">
+                                <button type="submit" class="btn btn-warning ">Actualizar</button>
+                            </div>
+                        </div>
+
+                    </form><!-- End General Form Elements -->
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main><!-- End #main -->

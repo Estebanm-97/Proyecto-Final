@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CCIH_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asignaciones">
+    <Key>
+      <PropertyRef Name="IdAsignacion" />
+    </Key>
+    <Property Name="IdAsignacion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Asignaciones" FromRole="Asignaciones" ToRole="Nota" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaHora" Type="DateTime" Precision="3" />
+    <Property Name="Mensaje" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Origen" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="IdUsuario" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IdEstatus" Type="Int64" />
+    <Property Name="IdRol" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Curso" FromRole="Curso" ToRole="Nota" />
+  </EntityType>
+  <EntityType Name="Estatus">
+    <Key>
+      <PropertyRef Name="IdEstatus" />
+    </Key>
+    <Property Name="IdEstatus" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Estatus" FromRole="Estatus" ToRole="Oficina" />
+  </EntityType>
+  <EntityType Name="Grupo">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+    </Key>
+    <Property Name="IdGrupo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEstatus" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Horario">
+    <Key>
+      <PropertyRef Name="IdHorario" />
+    </Key>
+    <Property Name="IdHorario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="IdMatricula" />
+    </Key>
+    <Property Name="IdMatricula" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdCurso" Type="Int64" />
+    <Property Name="IdModalidad" Type="Int64" />
+    <Property Name="IdNivel" Type="Int64" />
+    <Property Name="IdHorario" Type="Int64" />
+    <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="FechaMatricula" Type="DateTime" Precision="3" />
+    <Property Name="DiaPago" Type="Int32" />
+    <Property Name="Comentario" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IdEstatus" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Modalidad">
+    <Key>
+      <PropertyRef Name="IdModalidad" />
+    </Key>
+    <Property Name="IdModalidad" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NivelCurso">
+    <Key>
+      <PropertyRef Name="IdNivelCurso" />
+    </Key>
+    <Property Name="IdNivelCurso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Nota">
+    <Key>
+      <PropertyRef Name="IdNota" />
+    </Key>
+    <Property Name="IdNota" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdGrupo" Type="Int64" />
+    <Property Name="IdUsuario" Type="Int64" />
+    <Property Name="IdOficinas" Type="Int64" />
+    <Property Name="Nota1" Type="Decimal" Precision="4" Scale="1" />
+    <Property Name="IdAgisnacion" Type="Int64" />
+    <Property Name="IdCurso" Type="Int64" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Nota_Asignaciones" FromRole="Nota" ToRole="Asignaciones" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_Nota_Curso" FromRole="Nota" ToRole="Curso" />
+    <NavigationProperty Name="Oficina" Relationship="Self.FK_Nota_Oficina" FromRole="Nota" ToRole="Oficina" />
+  </EntityType>
+  <EntityType Name="Oficina">
+    <Key>
+      <PropertyRef Name="IdOficina" />
+    </Key>
+    <Property Name="IdOficina" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IdUsuario" Type="Int64" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IdEstatus" Type="Int64" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="IdRol" Type="Int64" />
+    <NavigationProperty Name="Estatus" Relationship="Self.FK_Oficina_Estatus" FromRole="Oficina" ToRole="Estatus" />
+    <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Oficina" FromRole="Oficina" ToRole="Nota" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_Oficina_Rol" FromRole="Oficina" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="PagoClientes">
+    <Key>
+      <PropertyRef Name="IdPagoCliente" />
+    </Key>
+    <Property Name="IdPagoCliente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IdCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdCurso" Type="Int64" />
+    <Property Name="FechaPago" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PagoProveedor">
+    <Key>
+      <PropertyRef Name="IdPagoProveedor" />
+    </Key>
+    <Property Name="IdPagoProveedor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Motivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IdProveedor" Type="Int64" />
+    <Property Name="FechaPago" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Proveedor" Relationship="Self.FK_PagoProveedor_Proveedor" FromRole="PagoProveedor" ToRole="Proveedor" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <NavigationProperty Name="PagoProveedor" Relationship="Self.FK_PagoProveedor_Proveedor" FromRole="Proveedor" ToRole="PagoProveedor" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Oficina" Relationship="Self.FK_Oficina_Rol" FromRole="Rol" ToRole="Oficina" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PwUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdOficina" Type="Int64" />
+    <Property Name="IdCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IdRol" Type="Int64" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimaActividad" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int64" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="IdEstatus" Type="Int64" />
+  </EntityType>
+  <EntityType Name="PreMatricula">
+    <Key>
+      <PropertyRef Name="IdPrematricula" />
+    </Key>
+    <Property Name="IdPrematricula" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IdCurso" Type="Int64" />
+    <Property Name="IdModalidad" Type="Int64" />
+    <Property Name="IdNivel" Type="Int64" />
+    <Property Name="IdEstatus" Type="Int64" />
+    <Property Name="FechaPrematricula" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Nota_Asignaciones">
+    <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="0..1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaciones">
+        <PropertyRef Name="IdAsignacion" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="IdAgisnacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nota_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oficina_Estatus">
+    <End Role="Estatus" Type="Self.Estatus" Multiplicity="0..1" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estatus">
+        <PropertyRef Name="IdEstatus" />
+      </Principal>
+      <Dependent Role="Oficina">
+        <PropertyRef Name="IdEstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nota_Oficina">
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="0..1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oficina">
+        <PropertyRef Name="IdOficina" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="IdOficinas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oficina_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Oficina">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PagoProveedor_Proveedor">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+    <End Role="PagoProveedor" Type="Self.PagoProveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="PagoProveedor">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CCIH_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <EntitySet Name="Estatus" EntityType="Self.Estatus" />
+    <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+    <EntitySet Name="Horario" EntityType="Self.Horario" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" />
+    <EntitySet Name="Modalidad" EntityType="Self.Modalidad" />
+    <EntitySet Name="NivelCurso" EntityType="Self.NivelCurso" />
+    <EntitySet Name="Nota" EntityType="Self.Nota" />
+    <EntitySet Name="Oficina" EntityType="Self.Oficina" />
+    <EntitySet Name="PagoClientes" EntityType="Self.PagoClientes" />
+    <EntitySet Name="PagoProveedor" EntityType="Self.PagoProveedor" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="PreMatricula" EntityType="Self.PreMatricula" />
+    <AssociationSet Name="FK_Nota_Asignaciones" Association="Self.FK_Nota_Asignaciones">
+      <End Role="Asignaciones" EntitySet="Asignaciones" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nota_Curso" Association="Self.FK_Nota_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oficina_Estatus" Association="Self.FK_Oficina_Estatus">
+      <End Role="Estatus" EntitySet="Estatus" />
+      <End Role="Oficina" EntitySet="Oficina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nota_Oficina" Association="Self.FK_Nota_Oficina">
+      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oficina_Rol" Association="Self.FK_Oficina_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Oficina" EntitySet="Oficina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PagoProveedor_Proveedor" Association="Self.FK_PagoProveedor_Proveedor">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="PagoProveedor" EntitySet="PagoProveedor" />
+    </AssociationSet>
+    <FunctionImport Name="ConsultarCursos" ReturnType="Collection(CCIH_DBModel.ConsultarCursos_Result)" />
+    <FunctionImport Name="ConsultarEstatus" ReturnType="Collection(CCIH_DBModel.ConsultarEstatus_Result)" />
+    <FunctionImport Name="ConsultarGrupos" ReturnType="Collection(CCIH_DBModel.ConsultarGrupos_Result)" />
+    <FunctionImport Name="ConsultarHorarios" ReturnType="Collection(CCIH_DBModel.ConsultarHorarios_Result)" />
+    <FunctionImport Name="ConsultarModalidad" ReturnType="Collection(CCIH_DBModel.ConsultarModalidad_Result)" />
+    <FunctionImport Name="ConsultarNivel" ReturnType="Collection(CCIH_DBModel.ConsultarNivel_Result)" />
+    <FunctionImport Name="ConsultarPreMatricula" ReturnType="Collection(CCIH_DBModel.ConsultarPreMatricula_Result)" />
+    <FunctionImport Name="CREAR_ROL">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EDITAR_ROL">
+      <Parameter Name="IdRol" Mode="In" Type="Int64" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="ELIMINAR_ROL">
+      <Parameter Name="IdRol" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="InicioSesion" ReturnType="Collection(CCIH_DBModel.InicioSesion_Result)">
+      <Parameter Name="nombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="contrasenna" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTAR_ROL">
+      <Parameter Name="NombreRol" Mode="In" Type="String" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarCliente">
+      <Parameter Name="Cedula" Mode="In" Type="String" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+      <Parameter Name="IdRol" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarPrematricula">
+      <Parameter Name="CorreoElectronico" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido1" Mode="In" Type="String" />
+      <Parameter Name="Apellido2" Mode="In" Type="String" />
+      <Parameter Name="IdCurso" Mode="In" Type="Int64" />
+      <Parameter Name="IdModalidad" Mode="In" Type="Int64" />
+      <Parameter Name="IdNivel" Mode="In" Type="Int64" />
+      <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+      <Parameter Name="FechaPrematricula" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="LISTAR_ROLES" ReturnType="Collection(CCIH_DBModel.LISTAR_ROLES_Result)" />
+    <FunctionImport Name="RegistarMatricula">
+      <Parameter Name="Cedula" Mode="In" Type="String" />
+      <Parameter Name="IdCurso" Mode="In" Type="Int64" />
+      <Parameter Name="IdModalidad" Mode="In" Type="Int64" />
+      <Parameter Name="IdNivel" Mode="In" Type="Int64" />
+      <Parameter Name="IdHorario" Mode="In" Type="Int64" />
+      <Parameter Name="Monto" Mode="In" Type="Decimal" />
+      <Parameter Name="FechaMatricula" Mode="In" Type="DateTime" />
+      <Parameter Name="DiaPago" Mode="In" Type="Int32" />
+      <Parameter Name="Comentario" Mode="In" Type="String" />
+      <Parameter Name="IdEstatus" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="ConsultarCursos_Result">
+    <Property Type="Int64" Name="IdCurso" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ConsultarEstatus_Result">
+    <Property Type="Int64" Name="IdEstatus" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="ConsultarGrupos_Result">
+    <Property Type="Int64" Name="IdGrupo" Nullable="false" />
+    <Property Type="Int64" Name="IdEstatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ConsultarHorarios_Result">
+    <Property Type="Int64" Name="IdHorario" Nullable="false" />
+    <Property Type="String" Name="Dia" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ConsultarModalidad_Result">
+    <Property Type="Int64" Name="IdModalidad" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ConsultarNivel_Result">
+    <Property Type="Int64" Name="IdNivelCurso" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ConsultarPreMatricula_Result">
+    <Property Type="Int64" Name="IdPrematricula" Nullable="false" />
+    <Property Type="String" Name="CorreoElectronico" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="15" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Apellido1" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Apellido2" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Curso" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Modalidad" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nivel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Estatus" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="InicioSesion_Result">
+    <Property Type="Int64" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PwUsuario" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="IdOficina" Nullable="true" />
+    <Property Type="String" Name="IdCliente" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="IdRol" Nullable="true" />
+    <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaUltimaActividad" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="IdUsuarioModificacion" Nullable="true" />
+    <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="IdEstatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LISTAR_ROLES_Result">
+    <Property Type="Int64" Name="IdRol" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="IdUsuarioModificacion" Nullable="true" />
+    <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
